@@ -4,6 +4,10 @@
 	"description": "Provides rich language support for APL Macro Language.",
 	"version": "1.1.0",
 	"publisher": "MauroFecarotta",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mauro-F76/apl-language-features.git"
+	},
     "icon": "images/icon.png",
 	"license": "LICENSE.md",
 	"engines": {
