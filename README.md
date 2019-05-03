@@ -1,6 +1,6 @@
 # apl-language-features README
 
-Language Features for AToolSoftware Macro Language (APL).<br />
+Language Features for AToolSoftware Macro Language APL (PARTNER/ASPAN, TOOLCAM, MARS).<br />
 Provides:
 - Improved folding;
 - Possibility to create foding sections using the tags ###section and ###endsection;
@@ -15,7 +15,7 @@ Resources:<br />
 [APL Macro Lessons](https://www.maurofecarotta.it/vscode/extensions/resources/apl-macro-lessons.pdf)<br />
 <br />
 
-![screenshot](https://www.maurofecarotta.it/vscode/extensions/images/atoolsoftware-macro-preview.png)
+![screenshot](https://www.maurofecarotta.it/vscode/extensions/images/atoolsoftware-apl-features-preview.png)
 
 ## Requirements
 
@@ -26,6 +26,10 @@ Requires 'AToolSoftware Macro Language (APL)' extension (Language support for AT
 * [AToolSoftware.it](http://www.atoolsoftware.it/)
 
 ## Release Notes
+
+### 1.1.1
+- updated devDependencies section;
+- some minor changes to package description;
 
 ### 1.0.0
 

@@ -1,8 +1,8 @@
 {
 	"name": "apl-language-features",
 	"displayName": "APL Language Features",
-	"description": "Provides rich language support for APL Macro Language.",
-	"version": "1.1.0",
+	"description": "Provides rich language support for APL Macro Language (PARTNER/ASPAN, TOOLCAM, MARS).",
+	"version": "1.1.1",
 	"publisher": "mauro-f76",
 	"repository": {
 		"type": "git",
@@ -31,6 +31,7 @@
 		"typescript": "^3.1.4",
 		"vscode": "^1.1.25",
 		"tslint": "^5.8.0",
+		"tar": ">=4.4.2",
 		"@types/node": "^8.10.25",
 		"@types/mocha": "^2.2.42"
 	}
