@@ -27,6 +27,9 @@ Requires 'AToolSoftware Macro Language (APL)' extension (Language support for AT
 
 ## Release Notes
 
+### 1.1.2
+- updated dependencies for security fix;
+
 ### 1.1.1
 - updated devDependencies section;
 - some minor changes to package description;

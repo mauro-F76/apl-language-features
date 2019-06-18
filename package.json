@@ -2,7 +2,7 @@
 	"name": "apl-language-features",
 	"displayName": "APL Language Features",
 	"description": "Provides rich language support for APL Macro Language (PARTNER/ASPAN, TOOLCAM, MARS).",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"publisher": "mauro-f76",
 	"repository": {
 		"type": "git",
