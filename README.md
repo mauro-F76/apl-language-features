@@ -27,6 +27,10 @@ Requires 'AToolSoftware Macro Language (APL)' extension (Language support for AT
 
 ## Release Notes
 
+### 1.2.0
+- improved code navigation with folding structure (outline);
+- updated dependencies for security fix;
+
 ### 1.1.2
 - updated dependencies for security fix;
 
