@@ -2,7 +2,7 @@
 	"name": "apl-language-features",
 	"displayName": "APL Language Features",
 	"description": "Provides rich language support for APL Macro Language (PARTNER/ASPAN, TOOLCAM, MARS).",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"publisher": "mauro-f76",
 	"repository": {
 		"type": "git",
@@ -19,7 +19,45 @@
 	"activationEvents": [
         "onLanguage:atoolsoftwareapl"
     ],
-	"main": "./out/extension.js",
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"category": "APL: show variables assignment",
+				"command": "apl-language-features.showVarAssign",
+				"title": "show ~LET occurrences in functions tree"
+			},
+			{
+				"category": "APL: hide variables assignment",
+				"command": "apl-language-features.hideVarAssign",
+				"title": "hide ~LET occurrences in functions tree"
+			},
+			{
+				"category": "APL: show PCS output strings",
+				"command": "apl-language-features.showPcsOutput",
+				"title": "show ~? occurrences in functions tree"
+			},
+			{
+				"category": "APL: hide PCS output strings",
+				"command": "apl-language-features.hidePcsOutput",
+				"title": "hide ~? occurrences in functions tree"
+			}
+		],
+		"configuration": [
+			{
+				"properties": {
+					"apl-language-features.showVarAssign": {
+						"type": "boolean",
+						"default": true
+					},
+					"apl-language-features.showPcsOutput": {
+						"type": "boolean",
+						"default": true
+					}
+				}
+			}
+		]
+	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",

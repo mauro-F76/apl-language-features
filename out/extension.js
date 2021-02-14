@@ -1,7 +1,24 @@
-'use strict';
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//'use strict';
 const vscode = require("vscode");
 function activate(context) {
+    vscode.commands.registerCommand("apl-language-features.showVarAssign", () => {
+        vscode.workspace.getConfiguration("apl-language-features").update("showVarAssign", true, true);
+        vscode.commands.executeCommand('workbench.action.reloadWindow');
+    });
+    vscode.commands.registerCommand("apl-language-features.hideVarAssign", () => {
+        vscode.workspace.getConfiguration("apl-language-features").update("showVarAssign", false, true);
+        vscode.commands.executeCommand('workbench.action.reloadWindow');
+    });
+    vscode.commands.registerCommand("apl-language-features.showPcsOutput", () => {
+        vscode.workspace.getConfiguration("apl-language-features").update("showPcsOutput", true, true);
+        vscode.commands.executeCommand('workbench.action.reloadWindow');
+    });
+    vscode.commands.registerCommand("apl-language-features.hidePcsOutput", () => {
+        vscode.workspace.getConfiguration("apl-language-features").update("showPcsOutput", false, true);
+        vscode.commands.executeCommand('workbench.action.reloadWindow');
+    });
     context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider({ language: "atoolsoftwareapl" }, new APLDocumentSymbolProvider()));
 }
 exports.activate = activate;
@@ -11,6 +28,8 @@ class APLDocumentSymbolProvider {
             var symbols = [];
             for (var i = 0; i < document.lineCount; i++) {
                 var line = document.lineAt(i);
+                const showVarAssign = vscode.workspace.getConfiguration("apl-language-features").get("showVarAssign");
+                const showPcsOutput = vscode.workspace.getConfiguration("apl-language-features").get("showPcsOutput");
                 var SectionRegExp = /^(\s*)(###section )/;
                 var SectionEndRegExp = /^(\s*)(###endsection )/;
                 var FunctionRegExp = /^(\s*)(\~START )/;
@@ -46,20 +65,24 @@ class APLDocumentSymbolProvider {
                                 i_char = ftxt.length;
                                 // console.log("enter function (3)...");
                                 if (ftxt.match(VarAssignRegExp)) {
-                                    let vname = ftxt.substr(0);
-                                    vname = vname.toString().trim();
-                                    let f_details = "";
-                                    let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.Variable, function_line.range, function_line.range);
-                                    // console.log("found variable assignment (4) ...");
-                                    fs.children.push(vs);
+                                    if (showVarAssign) {
+                                        let vname = ftxt.substr(0);
+                                        vname = vname.toString().trim();
+                                        let f_details = "";
+                                        let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.Variable, function_line.range, function_line.range);
+                                        // console.log("found variable assignment (4) ...");
+                                        fs.children.push(vs);
+                                    }
                                 }
                                 else if (ftxt.match(StringOutputRegExp)) {
-                                    let vname = ftxt.substr(0);
-                                    vname = vname.toString().trim();
-                                    let f_details = "";
-                                    let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.String, function_line.range, function_line.range);
-                                    // console.log("found pcs output (5) ...");
-                                    fs.children.push(vs);
+                                    if (showPcsOutput) {
+                                        let vname = ftxt.substr(0);
+                                        vname = vname.toString().trim();
+                                        let f_details = "";
+                                        let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.String, function_line.range, function_line.range);
+                                        // console.log("found pcs output (5) ...");
+                                        fs.children.push(vs);
+                                    }
                                 }
                                 if (ftxt.match(FunctionEndRegExp)) {
                                     // console.log("exit (1)...");
@@ -98,20 +121,24 @@ class APLDocumentSymbolProvider {
                         let ftxt = function_line.text;
                         i_char = ftxt.length;
                         if (ftxt.match(VarAssignRegExp)) {
-                            let vname = ftxt.substr(0);
-                            vname = vname.toString().trim();
-                            let f_details = "";
-                            let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.Variable, function_line.range, function_line.range);
-                            // console.log("found variable assignment (4) ...");
-                            fs.children.push(vs);
+                            if (showVarAssign) {
+                                let vname = ftxt.substr(0);
+                                vname = vname.toString().trim();
+                                let f_details = "";
+                                let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.Variable, function_line.range, function_line.range);
+                                // console.log("found variable assignment (4) ...");
+                                fs.children.push(vs);
+                            }
                         }
                         else if (ftxt.match(StringOutputRegExp)) {
-                            let vname = ftxt.substr(0);
-                            vname = vname.toString().trim();
-                            let f_details = "";
-                            let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.String, function_line.range, function_line.range);
-                            // console.log("found pcs output (5) ...");
-                            fs.children.push(vs);
+                            if (showPcsOutput) {
+                                let vname = ftxt.substr(0);
+                                vname = vname.toString().trim();
+                                let f_details = "";
+                                let vs = new vscode.DocumentSymbol(vname, f_details, vscode.SymbolKind.String, function_line.range, function_line.range);
+                                // console.log("found pcs output (5) ...");
+                                fs.children.push(vs);
+                            }
                         }
                         if (ftxt.match(FunctionEndRegExp)) {
                             // console.log("exit (1)...");
