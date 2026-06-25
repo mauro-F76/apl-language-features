@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "apl-language-features" extension will be documented in this file.
 
+### 1.3.1
+- Maintenance update:
+  * updated modules and components;
+
 ### 1.3.0
 - Added extension settings:
   * show/hide variables assignment (~LET) in the functions tree;

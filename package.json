@@ -2,23 +2,23 @@
 	"name": "apl-language-features",
 	"displayName": "APL Language Features",
 	"description": "Provides rich language support for APL Macro Language (PARTNER/ASPAN, TOOLCAM, MARS).",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"publisher": "mauro-f76",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mauro-F76/apl-language-features.git"
 	},
-    "icon": "images/icon.png",
+	"icon": "images/icon.png",
 	"license": "LICENSE.md",
 	"engines": {
-		"vscode": "^1.30.0"
+		"vscode": "^1.105.0"
 	},
 	"categories": [
 		"Programming Languages"
 	],
 	"activationEvents": [
-        "onLanguage:atoolsoftwareapl"
-    ],
+		"onLanguage:atoolsoftwareapl"
+	],
 	"main": "./out/extension",
 	"contributes": {
 		"commands": [
@@ -66,13 +66,13 @@
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"typescript": "^3.1.4",
-		"vscode": "^1.1.25",
-		"tslint": "^5.8.0",
-		"tar": ">=4.4.2",
-		"@types/node": "^8.10.25",
-		"@types/mocha": "^2.2.42",
-		"kind-of": ">=6.0.3",
-		"minimist": ">=0.2.1"
+		"@types/node": "^26.0.0",
+		"@types/vscode": "^1.105.0",
+		"@vscode/test-electron": "^3.0.0",
+		"glob": "^13.0.6",
+		"mocha": "^11.7.6"
+	},
+	"dependencies": {
+		"typescript": "^6.0.3"
 	}
 }

@@ -27,6 +27,10 @@ Requires 'AToolSoftware Macro Language (APL)' extension (Language support for AT
 
 ## Release Notes
 
+### 1.3.1
+- Maintenance update:
+  * updated modules and components;
+
 ### 1.3.0
 - Added extension settings:
   * show/hide variables assignment (~LET) in the functions tree;
